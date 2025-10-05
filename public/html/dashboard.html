@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+      <h2 class="dashboard-title">ADMIN DASHBOARD</h2>
+
+      <div class="sidebar-nav">
+        <!-- Home Section -->
+        <a
+          href="#home"
+          class="nav-item active"
+          onclick="showSection('dashboard-section')"
+        >
+          <i class="fas fa-home"></i>
+          <span class="nav-item-text">Home</span>
+        </a>
+
+        <!-- Important Links Section -->
+        <div class="nav-section">
+          <div class="nav-title">Important Links</div>
+        </div>
+
+        <!-- Client Management Section -->
+        <div class="nav-item" onclick="toggleSection('client-section')">
+          <i class="fas fa-users"></i>
+          <span class="nav-item-text">Client Management</span>
+          <span class="dropdown-arrow">▼</span>
+        </div>
+        <div id="client-section" style="display: none">
+          <a
+            href="#add-client"
+            class="nav-item"
+            style="padding-left: 40px"
+            onclick="showSection('add-client-section')"
+          >
+            <span class="nav-item-text">Add Client</span>
+          </a>
+          <a
+            href="#view-clients"
+            class="nav-item"
+            style="padding-left: 40px"
+            onclick="showSection('view-clients-section')"
+          >
+            <span class="nav-item-text">View Clients</span>
+          </a>
+          <a
+            href="#update-client"
+            class="nav-item"
+            style="padding-left: 40px"
+            onclick="showSection('update-client-section')"
+          >
+            <span class="nav-item-text">Update Client</span>
+          </a>
+          <a
+            href="#delete-client"
+            class="nav-item"
+            style="padding-left: 40px"
+            onclick="showSection('delete-client-section')"
+          >
+            <span class="nav-item-text">Delete Client</span>
+          </a>
+        </div>
+
+        <!-- Port Management Section -->
+        <div class="nav-item" onclick="toggleSection('port-section')">
+          <i class="fas fa-ship"></i>
+          <span class="nav-item-text">Port Management</span>
+          <span class="dropdown-arrow">▼</span>
+        </div>
+        <div id="port-section" style="display: none">
+          <a
+            href="#add-port"
+            class="nav-item"
+            style="padding-left: 40px"
+            onclick="showSection('add-port-section')"
+          >
+            <span class="nav-item-text">Add Port</span>
+          </a>
+          <a
+            href="#view-ports"
+            class="nav-item"
+            style="padding-left: 40px"
+            onclick="showSection('view-port-section')"
+          >
+            <span class="nav-item-text">View Ports</span>
+          </a>
+          <a
+            href="#update-port"
+            class="nav-item"
+            style="padding-left: 40px"
+            onclick="showSection('update-port-section')"
+          >
+            <span class="nav-item-text">Update Port</span>
+          </a>
+          <a
+            href="#delete-port"
+            class="nav-item"
+            style="padding-left: 40px"
+            onclick="showSection('delete-port-section')"
+          >
+            <span class="nav-item-text">Delete Port</span>
+          </a>
+        </div>
+
+        <!-- Invoice Management Section -->
+         <!--<div class="nav-item" onclick="toggleSection('invoice-section')">
+          <i class="fas fa-file-invoice"></i>
+          <span class="nav-item-text">Invoice Management</span>
+          <span class="dropdown-arrow">▼</span>
+        </div>
+        <div id="invoice-section" style="display: none">
+          <a
+            href="#create-invoice"
+            class="nav-item"
+            style="padding-left: 40px"
+            onclick="showSection('create-invoice-section')"
+          >
+            <span class="nav-item-text">Create Invoice</span>
+          </a>
+          <a
+            href="#invoice-history"
+            class="nav-item"
+            style="padding-left: 40px"
+            onclick="showSection('invoice-history-section')"
+          >
+            <span class="nav-item-text">Invoice History</span>
+          </a>
+        </div> -->
+
+        <!-- Invoice Management Section -->
+        <div class="nav-item" onclick="toggleSection('invoice-section')">
+          <i class="fas fa-file-invoice"></i>
+          <span class="nav-item-text">Invoice Management</span>
+          <span class="dropdown-arrow">▼</span>
+        </div>
+        <div id="invoice-section" style="display: none">
+          <a
+            href="invoice-create.html"
+            class="nav-item"
+            style="padding-left: 40px"
+          >
+            <span class="nav-item-text">Create Invoice</span>
+          </a>
+          <a
+            href="invoice-history.html"
+            class="nav-item"
+            style="padding-left: 40px"
+          >
+            <span class="nav-item-text">Invoice History</span>
+          </a>
+        </div>
+
+
+
+
+        
+
+        <!-- Scheme Management Section -->
+        <div class="nav-item" onclick="toggleSection('scheme-section')">
+          <i class="fas fa-briefcase"></i>
+          <span class="nav-item-text">Scheme Management</span>
+          <span class="dropdown-arrow">▼</span>
+        </div>
+        <div id="scheme-section" style="display: none">
+          <a
+            href="#add-scheme"
+            class="nav-item"
+            style="padding-left: 40px"
+            onclick="showSection('add-scheme-section')"
+          >
+            <span class="nav-item-text">Add Scheme</span>
+          </a>
+          <a
+            href="#view-scheme"
+            class="nav-item"
+            style="padding-left: 40px"
+            onclick="showSection('view-scheme-section')"
+          >
+            <span class="nav-item-text">View Scheme</span>
+          </a>
+          <a
+            href="#update-scheme"
+            class="nav-item"
+            style="padding-left: 40px"
+            onclick="showSection('update-scheme-section')"
+          >
+            <span class="nav-item-text">Edit Scheme</span>
+          </a>
+          <a
+            href="#delete-scheme"
+            class="nav-item"
+            style="padding-left: 40px"
+            onclick="showSection('delete-scheme-section')"
+          >
+            <span class="nav-item-text">Delete Scheme</span>
+          </a>
+        </div>
+
+        <!-- Settings Section -->
+        <div class="nav-item" onclick="toggleSection('settings-section')">
+          <i class="fas fa-cog"></i>
+          <span class="nav-item-text">Settings</span>
+          <span class="dropdown-arrow">▼</span>
+                </div>
+                    <div id="settings-section" style="display: none">
+     
+
+                      <!--<a
+                        href="#profile-settings"
+                        class="nav-item"
+                        style="padding-left: 40px"
+                      >
+                        <span class="nav-item-text">Profile Settings</span>
+                      </a>
+                      <a
+                        href="#password-settings"
+                        class="nav-item"
+                        style="padding-left: 40px"
+                      >
+                        <span class="nav-item-text">Change Password</span>
+                      </a>-->
+                      <div class="nav-item" onclick="redirectToHomepage()" style="padding-left: 40px">
+                        <span class="nav-item-text">Logout</span>
+                      </div>
+                  
+                </div>
+      </div>
+    </div>
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+    <!-- Main Content -->
+    <div class="content" id="main-content">
+      <!-- Header -->
+      <div class="header">
+        <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+        <div class="user-info">
+          <span class="user-name"
+            >Welcome!!!
+          </span>
+        </div>
+      </div>
+      <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+      <!-- Dashboard Section -->
+      <div id="dashboard-section" class="content-section active">
+        <div class="box">
+          <h3 class="box-header">Dashboard Overview</h3>
+          <p>Total Clients: <span id="total-clients">0</span></p>
+          
+       
+          <p>Total Schemes: <span id="total-schemes">0</span></p>
+          <p>Total Ports: <span id="total-ports">0</span></p>
+        </div>
+        <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+                    <!-- Services Section -->
+            <div class="box">
+              <h3 class="box-header">Our Services</h3>
+
+              <!-- Table of Services -->
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Service Name</th>
+                  </tr>
+                </thead>
+                <tbody id="services-list">
+                  <tr>
+                    <td>Advance Licence Registration</td>
+                  </tr>
+                  <tr>
+                    <td>Advance Licence Cancellation</td>
+                  </tr>
+                  <tr>
+                    <td>EPCG Licence Registration</td>
+                  </tr>
+                  <tr>
+                    <td>EPCG Licence Cancellation</td>
+                  </tr>
+                  <tr>
+                    <td>Amendments</td>
+                  </tr>
+                  <tr>
+                    <td>DBK or RODTEP Surrender</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+      </div>
+      <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+      <!-- Add Client Section -->
+      <div id="add-client-section" class="content-section">
+        <div class="box">
+          <h3 class="box-header">Add New Client</h3>
+          <form id="client-form" class="client-form">
+            <div class="form-group">
+              <label for="company-name">Company Name</label>
+              <input
+                type="text"
+                id="company-name"
+                name="company_name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="gst-number">GST Number</label>
+              <input type="text" id="gst-number" name="gst_number" required />
+            </div>
+            <div class="form-group">
+              <label for="client-address">Address</label>
+              <textarea id="client-address" name="address" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Add Client</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- View Clients Section -->
+      <div id="view-clients-section" class="content-section">
+        <div class="box">
+          <h3 class="box-header">Client List</h3>
+          <div class="search-container">
+            <input
+              type="text"
+              id="search-client"
+              placeholder="Search by company name or GST number"
+            />
+          </div>
+          <table class="data-table" id="clients-table">
+            <thead>
+              <tr>
+                <th>id</th>
+                <th>Company Name</th>
+                <th>GST Number</th>
+                <th>Address</th>
+              </tr>
+            </thead>
+            <tbody id="clients-list">
+              <!-- Client data will be loaded here dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Update Client Section -->
+      <div id="update-client-section" class="content-section">
+        <div class="box">
+          <h3 class="box-header">Update Client</h3>
+          <div class="search-container">
+            <input
+              type="text"
+              id="search-update-client"
+              placeholder="Search by company name or GST number"
+            />
+          </div>
+
+          <p>Select a client from the table below to update:</p>
+          <table class="data-table" id="update-clients-table">
+            <thead>
+              <tr>
+                <th>id</th>
+                <th>Company Name</th>
+                <th>GST Number</th>
+                <th>Address</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="update-clients-list">
+              <!-- Client data for updating will be loaded here dynamically -->
+            </tbody>
+          </table>
+        </div>
+
+        <div class="box" id="update-form-container" style="display: none">
+          <h3 class="box-header">Edit Client Details</h3>
+          <form id="update-client-form" class="client-form">
+            <input type="hidden" id="update-client-id" name="client_id" />
+            <div class="form-group">
+              <label for="update-company-name">Company Name</label>
+              <input
+                type="text"
+                id="update-company-name"
+                name="company_name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="update-gst-number">GST Number</label>
+              <input
+                type="text"
+                id="update-gst-number"
+                name="gst_number"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="update-client-address">Address</label>
+              <textarea
+                id="update-client-address"
+                name="address"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Update Client</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Delete Client Section -->
+      <div id="delete-client-section" class="content-section">
+        <div class="box">
+          <h3 class="box-header">Delete Client</h3>
+          <div class="search-container">
+            <input
+              type="text"
+              id="search-delete-client"
+              placeholder="Search by company name or GST number"
+            />
+          </div>
+
+          <p>Select a client from the table below to delete:</p>
+          <table class="data-table" id="delete-clients-table">
+            <thead>
+              <tr>
+                <th>id</th>
+                <th>Company Name</th>
+                <th>GST Number</th>
+                <th>Address</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="delete-clients-list">
+              <!-- Client data for deletion will be loaded here dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+      <!-- Add Port Section -->
+      <div id="add-port-section" class="content-section section hidden">
+        <div class="box">
+          <h3 class="box-header">Add New Port</h3>
+          <form id="port-form" class="client-form">
+            <div class="form-group">
+              <label for="port-name">Port Name</label>
+              <input type="text" id="port-name" name="port_name" required />
+            </div>
+            <button type="submit" class="submit-btn">Add Port</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- View Ports Section -->
+      <div id="view-port-section" class="content-section section hidden">
+        <div class="box">
+          <h3 class="box-header">Port List</h3>
+          <div class="search-container">
+            <input
+              type="text"
+              id="search-port"
+              placeholder="Search by port name"
+            />
+          </div>
+          <table class="data-table" id="ports-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Port Name</th>
+              </tr>
+            </thead>
+            <tbody id="ports-list">
+              <!-- Port data will be loaded here dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Update Port Section -->
+      <div id="update-port-section" class="content-section section hidden">
+        <div class="box">
+          <h3 class="box-header">Update Port</h3>
+          <div class="search-container">
+            <input
+              type="text"
+              id="search-update-port"
+              placeholder="Search by port name"
+            />
+          </div>
+
+          <p>Select a port from the table below to update:</p>
+          <table class="data-table" id="update-ports-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Port Name</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="update-ports-list">
+              <!-- Port data for updating will be loaded here dynamically -->
+            </tbody>
+          </table>
+        </div>
+
+        <div class="box" id="update-port-form-container" style="display: none">
+          <h3 class="box-header">Edit Port</h3>
+          <form id="update-port-form" class="client-form">
+            <input type="hidden" id="update-port-id" name="port_id" />
+            <div class="form-group">
+              <label for="update-port-name">Port Name</label>
+              <input
+                type="text"
+                id="update-port-name"
+                name="port_name"
+                required
+              />
+            </div>
+            <button type="submit" class="submit-btn">Update Port</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Delete Port Section -->
+      <div id="delete-port-section" class="content-section section hidden">
+        <div class="box">
+          <h3 class="box-header">Delete Port</h3>
+          <div class="search-container">
+            <input
+              type="text"
+              id="search-delete-port"
+              placeholder="Search by port name"
+            />
+          </div>
+
+          <p>Select a port from the table below to delete:</p>
+          <table class="data-table" id="delete-ports-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Port Name</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="delete-ports-list">
+              <!-- Port data for deletion will be loaded here dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+      <!-- Create Invoice Section -->
+      <div id="create-invoice-section" class="content-section">
+        <div class="box">
+          <h3 class="box-header">Create Invoice</h3>
+          <form id="invoice-form">
+            <!-- Client Select -->
+            <div class="form-group">
+              <label for="client-select">Client Name</label>
+              <select id="client-select" name="client_id" required>
+                <!-- Options will be populated dynamically -->
+              </select>
+            </div>
+
+            <!-- GST and Address -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="client-gst">GST Number:</label>
+                <input type="text" id="client-gst" name="client_gst" readonly />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group" style="width: 100%">
+                <label for="client-address">Address:</label>
+                <input
+                  type="text"
+                  id="client-address"
+                  name="client_address"
+                  readonly
+                />
+              </div>
+            </div>
+
+            <!-- Invoice Details -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="invoice-number">Invoice Number</label>
+                <input
+                  type="text"
+                  id="invoice-number"
+                  name="invoice_number"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="invoice-hsncode">HSN/SAC Code</label>
+                <input
+                  type="text"
+                  id="invoice-hsncode"
+                  name="invoice_hsncode"
+                  value="996713"
+                  readonly
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="invoice-date">Invoice Date</label>
+                <input
+                  type="date"
+                  id="invoice-date"
+                  name="invoice_date"
+                  required
+                />
+              </div>
+            </div>
+
+            <!-- Invoice Items Table -->
+            <table class="data-table" id="invoice-items">
+              <thead>
+                <tr>
+                  <th>Sr. No.</th>
+                  <th>Scheme</th>
+                  <th>Shipping Bill No.</th>
+                  <th>Date</th>
+                  <th>Port</th>
+                  <th>No of Sbills/ Lic.</th>
+                  <th>Rate</th>
+                  <th>Amount</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="invoice-items-body">
+                <!-- Rows added dynamically -->
+              </tbody>
+            </table>
+
+            <!-- Add Item -->
+            <button type="button" onclick="addItemRow()">+ Add Item</button>
+
+            <!-- Invoice Summary -->
+            <div class="invoice-summary">
+              <table>
+                <tbody>
+                  <tr>
+                    <td class="label">Subtotal:</td>
+                    <td class="value">₹ <span id="sub-total">0.00</span></td>
+                  </tr>
+                  <tr>
+                    <td class="label">CGST (9%):</td>
+                    <td class="value">₹ <span id="cgst-amt">0.00</span></td>
+                  </tr>
+                  <tr>
+                    <td class="label">SGST (9%):</td>
+                    <td class="value">₹ <span id="sgst-amt">0.00</span></td>
+                  </tr>
+                  <tr>
+                    <td class="label">IGST (18%):</td>
+                    <td class="value">₹ <span id="igst-amt">0.00</span></td>
+                  </tr>
+                  <tr class="grand-total">
+                    <td class="label">TOTAL AMOUNT:</td>
+                    <td class="value">₹ <span id="total-amount">0.00</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Save Invoice -->
+            <button type="submit" id="create-invoice-btn" class="submit-btn">
+              <i class="fas fa-save"></i> Save Invoice & Download PDF
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!--INVOICE HISTRY SECTION-->
+      <div id="invoice-history-section" class="content-section">
+        <div class="box">
+          <h2 class="box-header">Invoice History</h2>
+          <div class="invoice-filter-section">
+            <input
+              type="text"
+              id="search-invoice"
+              placeholder="Search by invoice no or client name"
+            />
+            <label for="filter-from-date">From:</label>
+            <input type="date" id="filter-from-date" />
+            <label for="filter-to-date">To:</label>
+            <input type="date" id="filter-to-date" />
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Invoice No</th>
+                <th>Client Name</th>
+                <th>Date</th>
+                <th>Total Amount</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="invoice-history-list">
+               Invoices will appear here 
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+      <!-- Scheme Section content (add/view/edit/delete) -->
+      <div id="add-scheme-section" class="content-section">
+        <div class="box">
+          <h3 class="box-header">Add New Scheme</h3>
+          <form id="scheme-form" class="scheme-form">
+            <div class="form-group">
+              <label for="scheme-name">Scheme Name</label>
+              <input type="text" id="scheme-name" name="scheme_name" required />
+            </div>
+            <button type="submit" class="submit-btn">Add Scheme</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Search and View Schemes -->
+
+      <div id="view-scheme-section" class="content-section">
+        <div class="box">
+          <h3 class="box-header">Scheme List</h3>
+          <div class="search-container">
+            <input
+              type="text"
+              id="search-scheme"
+              placeholder="Search by scheme name or ID"
+              onkeyup="filterSchemes()"
+            />
+          </div>
+          <table class="data-table" id="schemes-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Scheme Name</th>
+              </tr>
+            </thead>
+            <tbody id="schemes-list">
+              <!-- Scheme data will be loaded here dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!--update-->
+      <div id="update-scheme-section" class="content-section">
+        <div class="box">
+          <h3 class="box-header">Update Scheme</h3>
+          <div class="search-container">
+            <input
+              type="text"
+              id="search-update-scheme"
+              placeholder="Search by scheme name or ID"
+            />
+          </div>
+
+          <p>Select a scheme from the table below to update:</p>
+          <table class="data-table" id="update-schemes-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Scheme Name</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="update-schemes-list">
+              <!-- Scheme data for updating will be loaded here dynamically -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Update Form Section -->
+        <div class="box" id="update-form-container" style="display: none">
+          <h3 class="box-header">Edit Scheme Details</h3>
+          <form id="update-scheme-form" class="scheme-form">
+            <input type="hidden" id="update-scheme-id" name="scheme_id" />
+            <div class="form-group">
+              <label for="update-scheme-name">Scheme Name</label>
+              <input
+                type="text"
+                id="update-scheme-name"
+                name="scheme_name"
+                required
+              />
+            </div>
+            <button type="submit" class="submit-btn">Update Scheme</button>
+          </form>
+        </div>
+      </div>
+
+      <!--delete-->
+      <div id="delete-scheme-section" class="content-section">
+        <div class="box">
+          <h3 class="box-header">Delete Scheme</h3>
+          <div class="search-container">
+            <input
+              type="text"
+              id="search-delete-scheme"
+              placeholder="Search by scheme name or ID"
+            />
+          </div>
+
+          <p>Select a scheme from the table below to delete:</p>
+          <table class="data-table" id="delete-schemes-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Scheme Name</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="delete-schemes-list">
+              <!-- Scheme data for deletion will be loaded here dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+      <!--setting-->
+<!--
+      <div id="profile-settings" class="content-section" style="display: none">
+        <div class="box">
+          <h3 class="box-header">Update Profile</h3>
+          <form id="profile-form">
+            <div class="form-group">
+              <label for="user-name">Name</label>
+              <input
+                type="text"
+                id="user-name"
+                name="name"
+                placeholder="Enter your name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="user-email">Email</label>
+              <input
+                type="email"
+                id="user-email"
+                name="email"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+            <button type="submit" class="submit-btn">Update Profile</button>
+          </form>
+        </div>
+      </div>
+
+      <div id="password-settings" class="content-section" style="display: none">
+        <div class="box">
+          <h3 class="box-header">Change Password</h3>
+          <form id="password-form">
+            <div class="form-group">
+              <label for="current-password">Current Password</label>
+              <input
+                type="password"
+                id="current-password"
+                name="current_password"
+                placeholder="Enter current password"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="new-password">New Password</label>
+              <input
+                type="password"
+                id="new-password"
+                name="new_password"
+                placeholder="Enter new password"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="confirm-password">Confirm Password</label>
+              <input
+                type="password"
+                id="confirm-password"
+                name="confirm_password"
+                placeholder="Confirm new password"
+                required
+              />
+            </div>
+            <button type="submit" class="submit-btn">Update Password</button>
+          </form>
+        </div>
+      </div>-->
+
+
+<!--<footer>
+  <div class="container">
+      <p>© 2025 Kwick Exim Services. All Rights Reserved. | Developed & Maintained By Shravani & Mrunmayee.</p>
+  </div>
+</footer>-->
+    </div>
+
+    <script src="/js/invoice-dashboard.js" defer></script>
+
+    <script src="../js/dashboard.js"></script>
+  </body>
+</html>

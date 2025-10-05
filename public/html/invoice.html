@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+    <link rel="stylesheet" href="../css/invoice.css">
+</head>
+<body>
+    <div class="invoice-page-container">
+        <div class="invoice-container">
+            <img src="../image/kwick-image.jpeg" alt="Invoice Logo" style="width: 100%; max-height: 120px; object-fit: contain;">
+
+        <!-- Client & Invoice Details -->
+            <table>
+                <tr>
+                    <!-- Left Side (Client Info - remains same as yours) -->
+                    <td style="width: 60%; vertical-align: top; border: 1px solid #000; padding: 10px;">
+                        <strong>To,</strong><br>
+                        <div class="form-group">
+                            <label for="client-select">Client Name</label>
+                            <select id="client-select" name="client_id" required style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                                <option value="">Select Client</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="client-gst">GST Number:</label>
+                            <input type="text" id="client-gst" name="client_gst" readonly style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="client-address">Address:</label>
+                            <textarea id="client-address" name="client_address" readonly style="width: 100%; padding: 8px; border: 1px solid ; border-radius: 4px; height: 80px;"></textarea>
+                        </div>
+                    </td>
+            
+                    <!-- Right Side (Invoice Details - manual input) -->
+                    <td style="width: 40%; vertical-align: top; border: 1px solid #000; padding: 10px;">
+                        <div class="form-group">
+                            <label for="invoiceNo">Invoice No:</label>
+                            <input type="text" id="invoiceNo" placeholder="Enter Invoice No" style="width: 100%; padding: 8px;  border-radius: 4px;">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="invoiceDate">Date:</label>
+                            <input type="date" id="invoiceDate" style="width: 100%; padding: 8px;  border-radius: 4px;">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>HSN/SAC CODE NO:</label>
+                            <div style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">996713</div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+                <!-- Service Description -->
+                <div class="boxs">
+                    <strong>BEING SERVICE CHARGES OF REGISTRATION FOR MEIS /ROSCTL/ADVANCE LICENSES/EPCG LICENCES & BOND
+                        CANCELLATION DETAILS AS UNDER</strong>
+                </div>
+
+                    <!-- Item Table -->
+                    <table id="itemsTable">
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>SCHEME</th>
+                            <th>Shipping Bill No.</th>
+                            <th>Date</th>
+                            <th>Port</th>
+                            <th>No of S/bills / Lic.</th>
+                            <th>Rate</th>
+                            <th>Amount</th>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">1</td>
+                            <td><input type="text" class="scheme" style="width: 100%;"></td>
+                            <td><input type="text" class="billNo" style="width: 100%;"></td>
+                            <td><input type="date" class="billDate" style="width: 100%;"></td>
+                            <td><input type="text" class="port" style="width: 100%;"></td>
+                            <td><input type="number" class="numberLic" value="1" style="width: 100%;"></td>
+                            <td><input type="number" class="rate" style="width: 100%;"></td>
+                            <td><input type="number" class="amount" readonly style="width: 100%;"></td>
+                        </tr>
+                    </table>
+
+                    <button type="button" onclick="addRow()">Add Item</button>
+
+                        <!-- Total Calculation -->
+                        <table class="totals-table">
+                            <tr>
+                                <td>Subtotal:</td>
+                                <td>₹ <span id="subtotal">0.00</span></td>
+                            </tr>
+                            <tr>
+                                <td>CGST (9%):</td>
+                                <td>₹ <span id="cgst">0.00</span></td>
+                            </tr>
+                            <tr>
+                                <td>SGST (9%):</td>
+                                <td>₹ <span id="sgst">0.00</span></td>
+                            </tr>
+                            <tr>
+                                <td>IGST (18%):</td>
+                                <td>₹ <span id="igst">0.00</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Total:</strong></td>
+                                <td><strong>₹ <span id="total">0.00</span></strong></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="padding-top: 15px; ">
+                                    <strong>Amount in words:</strong>
+                                    <div id="amountInWords" style="border-top: 1px dashed #999; padding-top: 5px; margin-top: 5px;">
+                                        Zero rupees only
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+
+                            <!-- Bank Details & PAN/GST Box with Total Amount-->
+
+                            <table style="width: 100%; margin-top: 10px;">
+                                <tr>
+                                    <td style="width: 50%; vertical-align: top; border: 1px solid black; padding: 10px;">
+                                        <strong>Bank Details :</strong><br>
+                                        Bank of Maharashtra<br>
+                                        Adarsh Nagar, Worli Br. Mumbai<br>
+                                        A/c. No. 20014002038<br>
+                                        IFSC : MAHB0001166
+                                    </td>
+                                    <td style="width: 50%; vertical-align: top; border: 1px solid black; padding: 10px;">
+                                        <strong>PAN No. :<br></strong> AZIPS3388Q <br><br>
+                                        <strong>GST NO. : <br></strong> 27AZIPS3388Q2Z7
+                                    </td>
+                                </tr>
+                            </table>
+
+
+
+                                <!-- Signature -->
+                                <div class="signature">
+                                    <strong>FOR KWICK EXIM SERVICES</strong><br><br><br><br>
+                                    Proprietor
+                                </div>
+            </div>
+
+    <!--   Download Button Positioned at the Bottom Center -->
+     <div class="download-container">
+        <a href="#" class="download-btn" download>Download PDF</a>
+    </div>
+    
+    </div>
+    <script src="../js/invoice.js"></script>
+
+</body>
+
+</html>

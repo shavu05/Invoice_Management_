@@ -1,0 +1,71 @@
+<!-- status-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="../css/login.css">
+
+    <style>
+        /* Style for the eye icon */
+        .password-toggle {
+            cursor: pointer;
+            position: relative;
+            right: 10px;
+        }
+
+        .password-field-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        input[type="password"], input[type="text"] {
+            flex: 1;
+            padding-right: 35px; /* Ensures text doesn't overlap with the icon */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2> Login</h2>
+        <div id="error-message" style="color: red; display: none;"></div> <!-- Error Box -->
+        <form id="login-form" method="POST" action="/login">
+
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            
+            <label for="password">Password</label>
+            <div class="password-field-wrapper">
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                <span class="password-toggle" onclick="togglePassword('password', this)"></span>
+            </div>
+            
+            <button type="submit">Login</button>
+        </form>
+        
+        <div id="dynamic-links">
+            <p><a href="../html/forgotPasswd.html">Forgot Password?</a></p>
+
+            <p>Don't have an account? <a href="../html/sign.html">Sign Up</a></p>
+
+        </div>
+    </div>
+
+    <script>
+        // Toggle visibility of password
+        function togglePassword(fieldId, icon) {
+            const passwordField = document.getElementById(fieldId);
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                icon.textContent = ""; // Change icon to hide password
+            } else {
+                passwordField.type = "password";
+                icon.textContent = ""; // Change back to show password
+            }
+        }
+    </script>
+    <script src="../js/login.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,107 @@
+/* invoice-history.css */
+
+body {
+  margin: 0;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+  /* Black border box around the whole page */
+  border: 5px solid black;  /* thick black border */
+  border-radius: 8px;       /* slightly rounded corners */
+  box-sizing: border-box;   /* include border in element size */
+  
+  background: #f7f9fc;
+  color: #333;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 2.4rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.back-button {
+  margin-bottom: 1.5rem;
+  padding: 8px 16px;
+  font-size: 1rem;
+  background-color: #3498db;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #2980b9;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.filters input,
+.filters select {
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 1.8px solid #ccc;
+  border-radius: 6px;
+  min-width: 180px;
+  transition: border-color 0.3s ease;
+}
+
+.filters input:focus,
+.filters select:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 6px rgba(52, 152, 219, 0.4);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  background-color: white;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th {
+  background-color: #f0f0f0;
+  color: #000;
+  font-weight: 600;
+  user-select: none;
+  border-bottom: 2px solid #ccc;
+}
+
+td {
+  color: #000;
+}
+
+tbody tr:hover {
+  background-color: #f1faff;
+  cursor: default;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .filters {
+    flex-direction: column;
+  }
+
+  .filters input,
+  .filters select {
+    width: 100%;
+    min-width: unset;
+  }
+}

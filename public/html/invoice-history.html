@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Invoice History</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <style>
+    body {
+      padding: 2rem;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f7fa;
+      color: #333;
+    }
+
+    h1 {
+      margin-bottom: 2rem;
+      font-size: 28px;
+      font-weight: 600;
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 15px;
+      background: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    th {
+      background-color: #34495e;
+      color: white;
+      text-align: left;
+      padding: 14px;
+      font-weight: 600;
+      border-bottom: 2px solid #ecf0f1;
+    }
+
+    td {
+      padding: 12px 14px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    tr:hover {
+      background-color: #f0f4f8;
+      transition: background 0.2s ease-in-out;
+    }
+
+    #backBtn {
+      margin-bottom: 2rem;
+      display: inline-block;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #backBtn:hover {
+      background-color: #2980b9;
+    }
+
+    @media (max-width: 768px) {
+      table {
+        font-size: 13px;
+      }
+
+      th, td {
+        padding: 10px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+    <h1>Invoice History</h1>
+    <button id="backBtn">Back to Dashboard</button>
+  </div>
+
+  <table id="invoice-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Invoice No</th>
+        <th>Date</th>
+        <th>Client</th>
+        <th>Total (₹)</th>
+        <th>GSTIN</th>
+        <th>HSN</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    // Redirect to dashboard based on role when Back button is clicked
+    document.getElementById("backBtn").addEventListener("click", () => {
+      const user = JSON.parse(localStorage.getItem("user"));
+
+      if (!user) {
+        window.location.href = "/html/login.html"; // fallback if user not found
+      } else if (user.role === "admin") {
+        window.location.href = "/html/dashboard.html";
+      } else {
+        window.location.href = "/html/logindashboard.html";
+      }
+    });
+
+    // Load invoices when page loads
+    async function loadInvoices() {
+      try {
+        const response = await fetch('/api/invoice-history');
+        const data = await response.json();
+
+        const tbody = document.querySelector('#invoice-table tbody');
+        tbody.innerHTML = '';
+
+        data.forEach((invoice, index) => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>${index + 1}</td>
+            <td>${invoice.invoice_number}</td>
+            <td>${invoice.invoice_date}</td>
+            <td>${invoice.client_name}</td>
+            <td>₹ ${parseFloat(invoice.total).toFixed(2)}</td>
+            <td>${invoice.client_gst || ''}</td>
+            <td>${invoice.hsn_code}</td>
+          `;
+          tbody.appendChild(row);
+        });
+      } catch (err) {
+        console.error('Failed to load invoice history:', err);
+        alert('Failed to load invoice history.');
+      }
+    }
+
+    loadInvoices();
+  </script>
+
+</body>
+</html>

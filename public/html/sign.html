@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <link rel="stylesheet" href="../css/sign.css">
+
+    <style>
+        /* Style for the eye icon */
+        .password-toggle {
+            cursor: pointer;
+            margin-left: -30px;
+            position: relative;
+            right: 10px;
+        }
+        
+        .password-field-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        input[type="password"], input[type="text"] {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Sign Up</h2>
+        <div id="error-message" style="color: red; display: none;"></div> <!-- Error Box -->
+        <form id="signup-form">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        
+            <label for="password">Password</label>
+            <div class="password-field-wrapper">
+                <input type="password" id="password" name="password" required>
+                <span class="password-toggle" onclick="togglePassword('password', this)">👁️</span>
+            </div>
+        
+            <label for="confirmPassword">Confirm Password</label>
+            <div class="password-field-wrapper">
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                <span class="password-toggle" onclick="togglePassword('confirmPassword', this)">👁️</span>
+            </div>
+        
+            <button type="submit">Sign Up</button>
+        </form>
+        
+        <p>Already have an account? <a href="../html/login.html">Login</a></p>
+        
+     
+    </div>
+    <script src="../js/sign.js"> </script>
+
+</body>
+</html>

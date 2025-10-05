@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard with Sliding Sidebar</title>
+    <style>
+        /* General Styling */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            overflow-x: hidden;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background: linear-gradient(120deg, #3498db, #8e44ad); /* Gradient background */
+            color: white;
+            position: fixed;
+            left: -250px; /* Initially hidden */
+            top: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: left 0.3s ease-in-out;
+        }
+
+        .sidebar h2 {
+            margin: 0;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 1px solid white;
+            padding-bottom: 10px;
+        }
+
+        .menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu li {
+            margin: 15px 0;
+            padding: 10px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.3); /* Transparent white */
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .menu li:hover {
+            background-color: rgba(255, 255, 255, 0.7); /* Brighter on hover */
+        }
+
+        /* Main Content Styling */
+        .content {
+            width: 100%;
+            transition: margin-left 0.3s ease-in-out;
+            box-sizing: border-box;
+        }
+        /* Header Styling */
+        .header {
+            background-color: white; /* White header background */
+            color: #343a40; /* Dark text */
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .toggle-btn {
+            background-color: #3498db; /* Match gradient colors */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .toggle-btn:hover {
+            background-color: #8e44ad; /* Hover effect matching sidebar */
+        }
+
+        .header .settings {
+            background-color: #3498db;
+            padding: 10px 15px;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .header .settings:hover {
+            background-color: #8e44ad;
+        }
+
+        /* Content Box Styling */
+        .box {
+            background-color: white;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .service-box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .service-item {
+            flex: 1 1 calc(33.333% - 40px);
+            background-color: #f8f9fa;
+            border: 1px solid #ddd; /* Subtle border */
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <h2>Dashboard</h2>
+        <ul class="menu">
+            <li onclick="showSection('dashboard')">Dashboard</li>
+            <li onclick="showSection('clients')">Clients</li>
+            <li onclick="showSection('invoice')">Create Invoice</li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content" id="main-content">
+        <!-- Header -->
+        <div class="header">
+            <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+            <button class="settings" onclick="showSettingsModal()">Account Settings</button>
+        </div>
+
+        <!-- Content Section -->
+        <div class="box">
+            <h3>Our Services</h3>
+            <div class="service-box">
+                <div class="service-item">Advance Licence Registration</div>
+                <div class="service-item">Advance Licence Cancellation</div>
+                <div class="service-item">EPCG Licence Registration</div>
+                <div class="service-item">EPCG Licence Cancellation</div>
+                <div class="service-item">DBK or RODTEP Surrender</div>
+                <div class="service-item">Amendments</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Sidebar Toggle Functionality
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const content = document.getElementById('main-content');
+
+            if (sidebar.style.left === '0px') {
+                sidebar.style.left = '-250px'; // Hide sidebar
+                content.style.marginLeft = '0'; // Reset content margin
+            } else {
+                sidebar.style.left = '0px'; // Show sidebar
+                content.style.marginLeft = '250px'; // Shift content to the right
+            }
+        }
+
+        // Navigation Placeholder
+        function showSection(section) {
+            alert(`Navigating to: ${section}`);
+        }
+
+        // Modal Placeholder for Account Settings
+        function showSettingsModal() {
+            alert('Account Settings Modal');
+        }
+    </script>
+</body>
+</html>

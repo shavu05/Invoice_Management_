@@ -1,0 +1,235 @@
+/* ../css/inv.css */
+
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f9;
+    color: #333;
+}
+
+    /* PDF Specific Styles */
+.invoice-pdf {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        color: #333;
+    }
+    
+    /* [Rest of the CSS from the "Updated CSS for PDF" section above] */
+
+
+.content {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.toggle-btn {
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.user-info {
+    font-size: 16px;
+}
+
+.user-info .dropdown-icon {
+    margin-left: 8px;
+}
+
+.back-btn {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: 500;
+}
+
+.back-btn i {
+    margin-right: 5px;
+}
+
+/* Form Box */
+.box {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.box-header {
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* Form */
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* Form Row */
+.form-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.form-row .form-group {
+    flex: 1;
+    min-width: 250px;
+}
+
+/* Table */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.data-table th,
+.data-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+.data-table th {
+    background-color: #f2f2f2;
+}
+
+.data-table input,
+.data-table select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+/* Delete button in table */
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+/* Buttons */
+.add-item-btn,
+.submit-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.add-item-btn i,
+.submit-btn i {
+    font-size: 14px;
+}
+
+.submit-btn {
+    background-color: #007bff;
+}
+
+/* Invoice Summary */
+.invoice-summary {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 400px;
+    margin-left: auto;
+}
+
+.invoice-summary table {
+    width: 100%;
+}
+
+.invoice-summary td {
+    padding: 8px;
+}
+
+.invoice-summary .label {
+    font-weight: 500;
+}
+
+.invoice-summary .value {
+    text-align: right;
+}
+
+.invoice-summary .grand-total {
+    font-size: 16px;
+    font-weight: bold;
+    border-top: 2px solid #000;
+    margin-top: 10px;
+}
+
+/* Invoice Template for PDF */
+#invoice-template {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: white;
+}
+
+/* Custom styling for disabled inputs */
+input[readonly] {
+    background-color: #f9f9f9;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+    }
+    
+    .form-row .form-group {
+        width: 100%;
+    }
+    
+    .data-table {
+        display: block;
+        overflow-x: auto;
+    }
+    
+    .header {
+        flex-direction: column;
+        align-items: flex;
+    }
+
+}
