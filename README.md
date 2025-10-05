@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Invoice_Management
 
 Kwick Exim Services – Invoice Management System
@@ -19,7 +19,7 @@ Designed for Kwick Exim Services, a consultancy specializing in Advance Licence,
 - HTML, CSS, JavaScript
 - Optional backend: Node.js, Express
 - Git for version control
-=======
+
 # InvoiceManagement_
 
 **Kwick Exim Services – Invoice Management System**
@@ -63,8 +63,8 @@ This system supports over **100+ businesses** and **10,000+ licenses processed**
 ## 📄 License
 
 This project is licensed under the MIT License.  
-Developed and maintained by Shravani & Mrunmayee © 2025.
->>>>>>> 5ebf8e4dfb19550a54a5772bfaf951e901f0be3a
+Developed and maintained by Shravani  © 2025.
+
 
 ## 🚀 How to Run
 1. Clone the repo:  
@@ -72,12 +72,12 @@ Developed and maintained by Shravani & Mrunmayee © 2025.
 2. Open `index.html` in your browser
 3. Customize as needed for your consultancy or client
 
-<<<<<<< HEAD
 ## 📄 License
-This project is developed and maintained by Shravani & Mrunmayee. All rights reserved © 2025.
+This project is developed and maintained by Shravani
+All rights reserved © 2025.
 
 
-=======
+
 ## 🚀 Getting Started
 ```bash
 npm install
