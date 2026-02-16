@@ -17,7 +17,7 @@ Designed for Kwick Exim Services, a consultancy specializing in Advance Licence,
 
 ## 📁 Tech Stack
 - HTML, CSS, JavaScript
-- Optional backend: Node.js, Express
+- backend: Node.js, Express
 - Git for version control
 
 # InvoiceManagement_
