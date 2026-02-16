@@ -1,25 +1,4 @@
 
-# Invoice_Management
-
-Kwick Exim Services – Invoice Management System
-
-This project streamlines invoice creation, payment tracking, and secure data storage for businesses involved in import-export operations. Built to support consultancy services in license verification and trade compliance, it enhances operational efficiency and transparency.
-
-## 🔧 Features
-- Invoice creation and editing
-- Payment tracking dashboard
-- Secure data handling
-- Responsive web design (HTML, CSS, JS)
-- Integration-ready for backend services
-
-## 🌍 Use Case
-Designed for Kwick Exim Services, a consultancy specializing in Advance Licence, EPCG Licence, and international trade documentation. This system supports over 100+ businesses and 10,000+ licenses processed.
-
-## 📁 Tech Stack
-- HTML, CSS, JavaScript
-- backend: Node.js, Express
-- Git for version control
-
 # InvoiceManagement_
 
 **Kwick Exim Services – Invoice Management System**
