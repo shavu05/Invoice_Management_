@@ -61,6 +61,7 @@ All rights reserved © 2025.
 ```bash
 npm install
 node server.js
+```
 
 ---
 
