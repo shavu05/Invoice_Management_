@@ -62,3 +62,21 @@ All rights reserved © 2025.
 npm install
 node server.js
 
+---
+
+## 🖼️ Project Screenshots
+
+### Homepage
+![Invoice Management System Homepage](./Homepage.png)
+
+### Login
+![Invoice Management System Login](./Login.png)
+
+### Dashboard
+![Invoice Management System Dashboard](./Dashboard.png)
+
+### Create Invoice
+![Invoice Management System - Create Invoice](./Create_Invoice_Filled.png)
+
+### Invoice History
+![Invoice Management System - Invoice History](./Invoice_History.png)
